@@ -1,4 +1,4 @@
-Redis Caching with Spring Boot 4 – Weather API
+<h1> Redis Caching with Spring Boot 4 – Weather API </h1>
 
 This project demonstrates how to build a high-traffic API using Spring Boot 4 and Redis to cache external API responses in a production-grade way.
 It shows how to protect an upstream API from excessive calls while still serving thousands of client requests efficiently.
@@ -27,3 +27,14 @@ After the TTL expires:
 •	The next request refreshes the cache
 •	A new snapshot is stored
 •	The cycle repeats
+
+<h2> k6 Load Test for Redis Cached Weather API </h2>
+
+This project includes a k6 load test that validates Redis based API response caching in the Spring Boot Weather service.
+
+The goal of this test is to simulate heavy traffic and confirm that Redis prevents repeated calls to the external weather provider within the cache TTL window.
+
+Make sure the Spring Boot application and Redis are running.
+
+Then run:
+k6 run weather-load-test.js
