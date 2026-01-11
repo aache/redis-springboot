@@ -36,6 +36,7 @@ public class RedisConfig {
 
         configs.put("weather", defaultConfig.entryTtl(Duration.ofSeconds(60)));
         configs.put("forecast", defaultConfig.entryTtl(Duration.ofMinutes(10)));
+        configs.put("api:getWeather:count", defaultConfig.entryTtl(Duration.ofMinutes(2)));
 
         return RedisCacheManager.builder(connectionFactory)
                 .cacheDefaults(defaultConfig)
